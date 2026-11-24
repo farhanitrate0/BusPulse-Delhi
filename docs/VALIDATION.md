@@ -1,4 +1,4 @@
-# BusPulse Delhi — validation report
+# BusPulse Delhi: validation report
 
 **Rule: the model never sees the week it is tested on.** It is trained on GPS of **1–24 Oct 2026**; every number
 below is measured on **real buses of 25–31 Oct** (a full Sunday–Saturday week). Settings were chosen on a separate
@@ -9,7 +9,7 @@ split (train 1–17, test 18–24 Oct), so the held-out week was never used to p
 
 | What is predicted | Compared with real buses (held-out week) | GTFS timetable | **BusPulse** |
 |---|---|---|---|
-| **Door to door** — walk + real wait + real ride (96 trips, median 72 min) | MAPE | 17.0 % | **12.4 %** |
+| **Door to door**: walk + real wait + real ride (96 trips, median 72 min) | MAPE | 17.0 % | **12.4 %** |
 | | mean absolute error | 12.1 min | **8.7 min** |
 | | within ±20 % | 66 % | **80 %** |
 | Bus ride, boarding → alighting stop (378 planned legs, median 21 min) | MAPE | 26.1 % | **16.6 %** |
@@ -17,13 +17,13 @@ split (train 1–17, test 18–24 Oct), so the held-out week was never used to p
 | | within ±20 % | 46 % | **70 %** |
 | Stop-to-stop travel time (42,000 trip chains of 5–30 stops) | MAPE | 33.2 % | **15.9 %** (14.4 % with live data) |
 | | within ±20 % | 38 % | **71 %** (75 % with live data) |
-| "On 9 of 10 days you arrive by …" | share of real rides that made it | — | **89.9 %** (claimed 90 %) |
+| "On 9 of 10 days you arrive by …" | share of real rides that made it |: | **89.9 %** (claimed 90 %) |
 | Wait at the first stop (275 legs) | mean error (bias) | −7.1 min | **−2.8 min** |
-| **vs Google Maps** — trips checkable against real buses (15 of 47) | mean abs. difference from the real trip | Google Maps 17.4 min | **8.7 min** (closer on 10 of 15) |
+| **vs Google Maps**: trips checkable against real buses (15 of 47) | mean abs. difference from the real trip | Google Maps 17.4 min | **8.7 min** (closer on 10 of 15) |
 
 Timetable error grows at night (60 % MAPE 00–06 h) and on long rides; BusPulse stays at 13–18 % at every hour.
 
-## 1. Whole bus rides — does the planner's answer match real buses?
+## 1. Whole bus rides: does the planner's answer match real buses?
 
 [RIDE_VALIDATION.md](RIDE_VALIDATION.md) · `scripts/11_validate_rides.py`
 
@@ -50,9 +50,9 @@ below p90 89.9 % (90), inside p10–p90 80.2 % (80).
 
 **Waits**: real mean wait 16.4 min; BusPulse predicts 13.6 (bias −2.8, MAE 9.4), the timetable 9.1
 (bias −7.1, MAE 10.1). Delhi buses come less often than scheduled, and on routes the GPS barely sees, real waits
-are ~6× what the timetable promises — the planner steers riders towards routes that actually run.
+are ~6× what the timetable promises: the planner steers riders towards routes that actually run.
 
-## 2. Stop-to-stop travel times — the traffic model itself
+## 2. Stop-to-stop travel times: the traffic model itself
 
 [validation_results.md](validation_results.md) · `scripts/04_validate.py`
 
@@ -141,7 +141,7 @@ randomness that history cannot predict. Only live positions can reduce it.
 
 ## 5. Robustness
 
-[stress_results.md](stress_results.md) · `scripts/06_loadtest.py` — against the deploy bundle (what Render runs)
+[stress_results.md](stress_results.md) · `scripts/06_loadtest.py`: against the deploy bundle (what Render runs)
 
 * One user at a time: **p50 ≈ 0.5 s, p95 ≈ 0.85 s** per complete answer (3 options, 24-hour profile, crowding,
   range). 200 random queries with 10 concurrent users: **0 server errors**, 98 % find a journey; < 400 MB RAM.

@@ -1,7 +1,7 @@
-# BusPulse Delhi — technical note
+# BusPulse Delhi: technical note
 
 **Problem 1: real-time bus traffic model and journey planner** (with Problem 2's crowding as a layer).
-Delhi's buses (DTC and cluster/DIMTS — the GPS feed sees ~2,200 of the 2,574 GTFS routes on a typical day) are
+Delhi's buses (DTC and cluster/DIMTS: the GPS feed sees ~2,200 of the 2,574 GTFS routes on a typical day) are
 used as moving traffic sensors: 31 days of GPS (124 GB, 913 M fixes) become a model of how long a bus
 takes on every stretch between two stops, for every hour of a weekday, Saturday and Sunday. A journey planner
 uses that model instead of the timetable, blends in live observations, says how reliable each answer is and how
@@ -25,7 +25,7 @@ The archive is processed **one day at a time**: extract one DB → clean → red
 ## 2. Linking GPS points to the network (map-matching to stops, not to roads)
 
 We match buses to **stops** rather than to OpenStreetMap road links. Every stop is a fixed point on the bus
-network, the planner works stop-to-stop, and GTFS already says which stops follow each other — so a pair of
+network, the planner works stop-to-stop, and GTFS already says which stops follow each other: so a pair of
 consecutive stop visits *is* a road stretch, without needing a road graph.
 
 1. **Stop clusters.** GTFS stops within 50 m are merged (greedy leader clustering, busiest stop first). This
@@ -33,7 +33,7 @@ consecutive stop visits *is* a road stretch, without needing a road graph.
    of the two clusters, so both directions stay separate.
 2. **Cleaning** (counts in `DATA_QUALITY.md`): parse text lat/lng/timestamps, drop rows outside the Delhi
    bounding box, de-duplicate on (vehicle, timestamp), remove **GPS jumps** (a fix whose speed in *and* out
-   exceeds 100 km/h — the classic off-road spike), sort by vehicle and time.
+   exceeds 100 km/h: the classic off-road spike), sort by vehicle and time.
 3. **Densify.** Where two consecutive fixes are 80 m–1.5 km apart and ≤180 s apart, points are interpolated
    every 40 m, so a bus moving fast between sparse fixes is not missed at a stop it passed.
 4. **Snap.** A KD-tree gives each point its nearest stop cluster within 50 m.
@@ -58,28 +58,28 @@ running time between stops; signal delay is part of running time, since it depen
 on the stop. Separating them means a passenger who gets off is not charged the dwell at their stop, and the
 model sees which stretches are slow because of traffic and which stops are slow because of boarding.
 
-**Aggregation** (DuckDB over the per-day files): for every (stretch, day type, hour) — n, median, winsorised
+**Aggregation** (DuckDB over the per-day files): for every (stretch, day type, hour): n, median, winsorised
 mean (15–85 %), p25/p75/p85 of run and dwell. Observations above 4× the stretch's own median are dropped first
 (a bus out of service). A (winsorised) mean is used for prediction because means add up along a trip.
 The winsorising level, recency weighting, shrinkage and median-vs-mean were chosen on a model-selection split
-(train 1–17 Oct, score on real trips of 18–24 Oct) so the held-out week was never used to pick settings —
+(train 1–17 Oct, score on real trips of 18–24 Oct) so the held-out week was never used to pick settings , 
 `docs/EXPERIMENTS.md` has every variant.
 
-**Sparse roads and hours — the fallback chain** (every estimate carries its level, shown in the app as the
+**Sparse roads and hours: the fallback chain** (every estimate carries its level, shown in the app as the
 share of the trip "measured from real buses"):
 
 | Level | Used when | Estimate |
 |---|---|---|
-| 3 — stretch + hour | ≥ 5 observations at that day type and hour | shrunk mean: `w·obs + (1−w)·level 2`, `w = n/(n+3)` |
-| 2 — stretch, other hours | stretch observed at other hours | stretch median × city slowdown factor for that day type and hour |
-| 1 — city speed | stretch never observed (rare route, or next to a stop the GPS seldom detects) | distance ÷ city median bus speed at that day type and hour |
-| 0 — timetable | no GPS model at all | GTFS scheduled time |
+| 3: stretch + hour | ≥ 5 observations at that day type and hour | shrunk mean: `w·obs + (1−w)·level 2`, `w = n/(n+3)` |
+| 2: stretch, other hours | stretch observed at other hours | stretch median × city slowdown factor for that day type and hour |
+| 1: city speed | stretch never observed (rare route, or next to a stop the GPS seldom detects) | distance ÷ city median bus speed at that day type and hour |
+| 0: timetable | no GPS model at all | GTFS scheduled time |
 
 So with little or no data the model degrades smoothly to "this stretch, typical shape of the day", then to
 "Delhi at this hour", never to a fixed timetable speed.
 
 **Waiting for the bus.** Expected wait from the **GPS**, not the timetable: from every observed departure of the
-same route from the same stop (one per bus pass) we get the headways H and use `E[H²] / (2·E[H])` — the expected
+same route from the same stop (one per bus pass) we get the headways H and use `E[H²] / (2·E[H])`: the expected
 wait of a passenger who turns up at random. It equals H/2 for perfectly regular buses and grows when buses
 **bunch** (two together, then a long gap), which the app reports ("buses often come bunched"). Where the GPS has
 no reliable wait for a stop, half the timetable headway is used (rare routes: time to the next scheduled bus).
@@ -94,14 +94,14 @@ the real buses of route r that left A within ±15 min of t are followed through 
   in the evening peak. The planner multiplies each ride by the median ratio for its time of day; the ratio
   quantiles give the range.
 * **Wait.** A stop the GPS detects poorly (or a terminal, where buses wait out of range) takes the GPS wait of
-  the nearest well-detected stop of the same route pattern (≤ 3 stops away) — the same buses pass both. Real
+  the nearest well-detected stop of the same route pattern (≤ 3 stops away): the same buses pass both. Real
   waits ÷ predicted: ×1.16 for GPS-based waits (the planner tends to pick the route whose wait looks shortest),
-  and **×5.8 where only the timetable is known** — routes the GPS barely sees mostly run far less than scheduled.
+  and **×5.8 where only the timetable is known**: routes the GPS barely sees mostly run far less than scheduled.
   The planner applies both factors while routing, so it steers riders towards routes that actually run.
 
 **Reliability range.** Ride × the whole-ride ratio quantiles (relative to their median) for that time of day, plus
-0.5–1.6× the expected wait — "usually 37–41 min; on 9 of 10 days you arrive by 09:13". On the held-out week the
-ride ranges cover 43.9 % (claimed 50 %), 79.9 % (85 %), 89.9 % (90 %) — `RIDE_VALIDATION.md`.
+0.5–1.6× the expected wait: "usually 37–41 min; on 9 of 10 days you arrive by 09:13". On the held-out week the
+ride ranges cover 43.9 % (claimed 50 %), 79.9 % (85 %), 89.9 % (90 %): `RIDE_VALIDATION.md`.
 
 ## 4. Live + historical
 
