@@ -372,9 +372,12 @@ def from_env(g: dict, tt) -> GtfsRtConnector | None:
     hf = config.DATA / "gtfsrt.env"            # local convenience: key kept in the gitignored data folder
     if not raw and hf.exists():
         raw = hf.read_text(encoding="utf-8").strip()
-    for part in raw.split(";"):
+    for part in raw.strip().strip("'\"").split(";"):
+        part = part.strip().strip("'\"")
         if ":" in part:
             k, v = part.split(":", 1)
-            headers[k.strip()] = v.strip()
+            headers[k.strip().strip("'\"")] = v.strip().strip("'\"")
+        elif part:                                  # a bare key → the Transport Stack header name
+            headers["x-api-key"] = part
     poll = float(os.environ.get("BUSPULSE_GTFSRT_POLL_S", "15"))
     return GtfsRtConnector(g, tt, url, headers, poll)

@@ -2,7 +2,10 @@
 
 **Built for the [Transport Stack Hackathon 2026, Delhi](https://delhi.transportstack.in/hackathon)** (Delhi Transport Stack, Phase 1)<br>
 **Problem 1: Real-time bus traffic model and journey planner** (+ Problem 2's crowding as a layer)
-<!-- LIVE DEMO: after the Render deploy, add a line here:  **Live demo:** https://<name>.onrender.com -->
+
+
+### ▶ Live demo: **[buspulse-delhi.onrender.com](https://buspulse-delhi.onrender.com)**
+<sub>Free hosting: the first visit after a quiet spell can take about a minute to wake up. API docs: [/docs](https://buspulse-delhi.onrender.com/docs)</sub>
 
 <p>
   <a href="docs/VALIDATION.md"><img alt="Validated on a held-out week of real buses" src="https://img.shields.io/badge/validated-held--out%20week%20of%20real%20buses-0b6e4f?style=for-the-badge"></a>

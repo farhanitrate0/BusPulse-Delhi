@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>BusPulse Delhi — Phase 1 proposal</title>
+<html lang="en"><head><meta charset="utf-8"><title>BusPulse Delhi: Phase 1 proposal</title>
 <style>
 @page{size:A4;margin:14mm 15mm}
 *{box-sizing:border-box}
@@ -66,15 +66,14 @@ and a phone layout.</li>
 <tr><td>BusPulse: 42,000 real bus trips of 5–30 stops</td><td class="n"><b class="g">1.61 min</b></td><td class="n"><b class="g">0.79 min</b></td><td class="n"><b class="g">71 %</b></td></tr>
 <tr><td>Official timetable, same trips</td><td class="n">2.84 min</td><td class="n">1.84 min</td><td class="n">38 %</td></tr>
 <tr><td>BusPulse: 378 whole planned bus rides (median 21 min)</td><td class="n"><b class="g">4.49 min</b></td><td class="n"><b class="g">2.14 min</b></td><td class="n"><b class="g">70 %</b></td></tr>
-<tr><td>BusPulse: 96 door-to-door trips, walk + real wait + real ride (median 72 min)</td><td class="n"><b class="g">8.7 min</b></td><td class="n">—</td><td class="n"><b class="g">80 %</b></td></tr>
+<tr><td>BusPulse: 96 door-to-door trips, walk + real wait + real ride (median 72 min)</td><td class="n"><b class="g">8.7 min</b></td><td class="n">n/a</td><td class="n"><b class="g">80 %</b></td></tr>
 </table>
 <p><b>Versus Google Maps</b> (47 bus-only trips at 08:30 and 18:00): in the morning we agree with Google (median difference 12 %).
 At 6 pm Google's times barely change while real buses crawl. On the 15 trips we could follow on real buses,
-BusPulse was 8.7 min from reality and Google 17.4 min, and BusPulse was closer on 10 of 15. Example: bus 463 at 6 pm, Google ~20 min,
-BusPulse 36, real buses 45. Settings were chosen on a separate split (train 1–17, test 18–24 Oct). Corrections that
-did not help were tested and documented, not used.</p>
+BusPulse was 8.7 min from reality and Google 17.4 min, and BusPulse was closer on 10 of 15. Average trip on those 15: Google 55 min, BusPulse 63, real buses 67
+(at 6 pm: Google 51, BusPulse 75, real 75). Example: bus 507 at 6 pm, Google ~28 min, BusPulse 52, real buses 53.</p>
 
-<div class="pb"></div>
+
 <h2>Design choices that matter</h2>
 <div class="two"><div>
 <ul>
@@ -88,6 +87,7 @@ delay stays inside running time; the rider's wait comes from real arrivals. The 
 <li><b>Noisy GPS</b>: 38.5 % duplicates removed, GPS jumps dropped, gaps over 3 min never produce a run.</li>
 <li><b>Same code for live and history</b>: the live connector reuses the pipeline's stop-visit logic. On a replayed
 feed it matches the offline numbers within 1 %.</li>
+<li><b>No tuning on the test week</b>: settings were chosen on a separate split (train 1–17, test 18–24 Oct); corrections that did not help were documented and left out.</li>
 <li><b>Built to run cheaply</b>: about 0.5 s per full answer, under 400 MB RAM, a 50 MB model bundle, one command to start.</li>
 </ul></div></div>
 
@@ -105,8 +105,10 @@ they will get a seat, in Hindi or English, on a basic phone. Also planners and o
 <li>Metro legs in the planner, stop departure boards, and fares.</li>
 </ul>
 
-<h2>Links</h2>
-<p>Code and docs: <b>github.com/farhanitrate0/BusPulse-Delhi</b> (README, technical note, validation report, live connector check, experiments).
-Live demo: see the README. Data: Transport Stack (bus GPS Oct 2026, GTFS, e-tickets) and the Transport Stack GTFS-RT live feed.</p>
+<h2>What it looks like, and how it holds up</h2>
+<div class="two" style="align-items:center;gap:10px"><img src="../img/validation_by_hour.png" style="width:100%;border:1px solid #e2e8ee;border-radius:8px"><img src="../img/05_mobile.png" style="width:100%;border-radius:8px"></div>
+
+<h2>Links</h2><p>Code and docs: <b>github.com/farhanitrate0/BusPulse-Delhi</b> (README, technical note, validation report, live connector check, experiments).
+Live demo: <b>buspulse-delhi.onrender.com</b>. Data: Transport Stack (bus GPS Oct 2026, GTFS, e-tickets) and the Transport Stack GTFS-RT live feed.</p>
 <div class="foot">All numbers are from docs/VALIDATION.md, docs/RIDE_VALIDATION.md and docs/google_comparison.md in the repository.</div>
 </body></html>
