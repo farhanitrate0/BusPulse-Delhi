@@ -1,0 +1,512 @@
+{
+ "headline": {
+  "peak_speed_kmh": 23.2,
+  "night_speed_kmh": 34.9,
+  "timetable_gap_pct": 22,
+  "routes_compared": 2175
+ },
+ "speed_by_hour": {
+  "weekday": [
+   38.3,
+   41.9,
+   43.0,
+   42.6,
+   39.7,
+   37.5,
+   35.3,
+   31.7,
+   29.4,
+   27.3,
+   27.5,
+   27.4,
+   26.7,
+   26.6,
+   26.6,
+   26.7,
+   26.5,
+   25.3,
+   23.2,
+   23.8,
+   25.7,
+   28.7,
+   32.2,
+   34.9
+  ],
+  "saturday": [
+   37.9,
+   41.7,
+   42.3,
+   42.5,
+   39.8,
+   37.6,
+   35.8,
+   33.5,
+   31.1,
+   28.9,
+   28.6,
+   27.7,
+   27.1,
+   27.0,
+   27.1,
+   26.9,
+   26.7,
+   25.8,
+   24.0,
+   24.5,
+   26.0,
+   28.6,
+   31.7,
+   34.3
+  ],
+  "sunday": [
+   38.0,
+   41.4,
+   42.6,
+   42.7,
+   40.0,
+   38.1,
+   37.1,
+   35.8,
+   33.7,
+   32.2,
+   31.5,
+   30.7,
+   29.7,
+   29.3,
+   29.5,
+   29.4,
+   29.0,
+   28.1,
+   26.8,
+   27.6,
+   28.8,
+   30.5,
+   32.7,
+   34.9
+  ]
+ },
+ "slowest_peak": [
+  {
+   "stretch": "Uttam Nagar / A1 Janakpuri (Pankha Road) \u2192 Uttam Nagar Terminal / Uttam Nagar East Metro Station",
+   "peak_kmh": 3.6,
+   "night_kmh": 6.6,
+   "obs_peak": 100,
+   "lat": 28.624065,
+   "lon": 77.067885
+  },
+  {
+   "stretch": "Maharaj Pur Check Post \u2192 Anand Vihar ISBT Terminal",
+   "peak_kmh": 4.1,
+   "night_kmh": 4.8,
+   "obs_peak": 299,
+   "lat": 28.643314500000002,
+   "lon": 77.3164615
+  },
+  {
+   "stretch": "Dispensary Paharganj \u2192 Police Station Paharganj",
+   "peak_kmh": 4.1,
+   "night_kmh": 8.0,
+   "obs_peak": 547,
+   "lat": 28.645002829120543,
+   "lon": 77.21339859405153
+  },
+  {
+   "stretch": "ISBT Anand Vihar \u2192 Anand Vihar ISBT Terminal",
+   "peak_kmh": 4.3,
+   "night_kmh": 4.2,
+   "obs_peak": 140,
+   "lat": 28.64497378363475,
+   "lon": 77.31696367258337
+  },
+  {
+   "stretch": "Rajpur Crossing \u2192 Chhatarpur Extension",
+   "peak_kmh": 4.5,
+   "night_kmh": 8.0,
+   "obs_peak": 156,
+   "lat": 28.4950145,
+   "lon": 77.184493
+  },
+  {
+   "stretch": "Hauz Khass Terminal \u2192 IIT Gate (Aurobindo Marg)",
+   "peak_kmh": 4.6,
+   "night_kmh": 8.6,
+   "obs_peak": 50,
+   "lat": 28.54360870325852,
+   "lon": 77.20285000587215
+  },
+  {
+   "stretch": "Tilak Bridge \u2192 ITO BSZ Marg (Ram Charan Aggarwal Chowk)",
+   "peak_kmh": 4.7,
+   "night_kmh": 13.2,
+   "obs_peak": 33,
+   "lat": 28.623882000000002,
+   "lon": 77.23932400000001
+  },
+  {
+   "stretch": "Ishpat Bhawan \u2192 Lodhi Hotel/Shiv Mandir",
+   "peak_kmh": 4.7,
+   "night_kmh": 16.3,
+   "obs_peak": 46,
+   "lat": 28.59246150325562,
+   "lon": 77.23688508590934
+  },
+  {
+   "stretch": "Peeli Kothi \u2192 Tis Hazari Animal Hospital",
+   "peak_kmh": 4.8,
+   "night_kmh": 8.4,
+   "obs_peak": 203,
+   "lat": 28.66245957931916,
+   "lon": 77.21780310665946
+  },
+  {
+   "stretch": "Tuglaqabad MB Road / Okhla more \u2192 Prem Nagar (TUGLQABAD ROAD)",
+   "peak_kmh": 4.9,
+   "night_kmh": 20.3,
+   "obs_peak": 119,
+   "lat": 28.50561246559745,
+   "lon": 77.27642929587745
+  },
+  {
+   "stretch": "Hanuman Mandir / Shivaji Stadium \u2192 Shivaji Stadium Terminal ( Connaught Place )",
+   "peak_kmh": 4.9,
+   "night_kmh": 17.0,
+   "obs_peak": 261,
+   "lat": 28.6302725,
+   "lon": 77.21395749999999
+  },
+  {
+   "stretch": "Old Delhi Railway Station (Fatehpuri) \u2192 Peeli Kothi",
+   "peak_kmh": 5.0,
+   "night_kmh": 7.1,
+   "obs_peak": 357,
+   "lat": 28.660295,
+   "lon": 77.224899
+  },
+  {
+   "stretch": "Subhadra Colony \u2192 Shastri Nagar Metro Station",
+   "peak_kmh": 5.0,
+   "night_kmh": 8.4,
+   "obs_peak": 108,
+   "lat": 28.671152499999998,
+   "lon": 77.1841345
+  },
+  {
+   "stretch": "Police Station Paharganj \u2192 Dispensary Paharganj",
+   "peak_kmh": 5.1,
+   "night_kmh": 10.5,
+   "obs_peak": 580,
+   "lat": 28.646077,
+   "lon": 77.2081455
+  },
+  {
+   "stretch": "Yamuna Bridge East Check Post \u2192 Kalindi Kunj Border",
+   "peak_kmh": 5.3,
+   "night_kmh": 14.3,
+   "obs_peak": 74,
+   "lat": 28.54830846201234,
+   "lon": 77.31709481361874
+  },
+  {
+   "stretch": "Khalsa College \u2192 INS Hostel",
+   "peak_kmh": 5.3,
+   "night_kmh": 9.6,
+   "obs_peak": 493,
+   "lat": 28.6947915,
+   "lon": 77.20969149999999
+  },
+  {
+   "stretch": "Hargovind Enclave \u2192 Gagan Vihar",
+   "peak_kmh": 5.3,
+   "night_kmh": 6.5,
+   "obs_peak": 16,
+   "lat": 28.6455965,
+   "lon": 77.3005395
+  },
+  {
+   "stretch": "Dharamshila Hospital \u2192 Dharmshila X-ing",
+   "peak_kmh": 5.3,
+   "night_kmh": 13.4,
+   "obs_peak": 88,
+   "lat": 28.6022,
+   "lon": 77.3136085
+  },
+  {
+   "stretch": "Kalkaji Mandir (MaaAnandmayeeMarg) \u2192 Kalkaji Mandir / NSIC",
+   "peak_kmh": 5.4,
+   "night_kmh": 10.1,
+   "obs_peak": 315,
+   "lat": 28.5479219708828,
+   "lon": 77.2628670338396
+  },
+  {
+   "stretch": "Nehru Place \u2192 Sant Nagar",
+   "peak_kmh": 5.4,
+   "night_kmh": 21.6,
+   "obs_peak": 352,
+   "lat": 28.54857609786973,
+   "lon": 77.24913317314967
+  },
+  {
+   "stretch": "Press Enclave \u2192 Saket A Block (Malviya Nagar Metro Station)",
+   "peak_kmh": 5.4,
+   "night_kmh": 22.9,
+   "obs_peak": 383,
+   "lat": 28.5279,
+   "lon": 77.2079
+  },
+  {
+   "stretch": "Okhla Phase 2 \u2192 Power House / DESU Office (BSES)",
+   "peak_kmh": 5.5,
+   "night_kmh": 25.5,
+   "obs_peak": 132,
+   "lat": 28.530135715978,
+   "lon": 77.27360312465719
+  },
+  {
+   "stretch": "Tolstoy Marg Barakhamba Crossing \u2192 MODERN SCHOOL BARA KHAMBA ROAD",
+   "peak_kmh": 5.5,
+   "night_kmh": 11.7,
+   "obs_peak": 9,
+   "lat": 28.62791,
+   "lon": 77.22543
+  },
+  {
+   "stretch": "Pansali Dham Rohini \u2192 ROHINI SEC- 25 DEEP VIHAR",
+   "peak_kmh": 5.5,
+   "night_kmh": 22.7,
+   "obs_peak": 307,
+   "lat": 28.740826,
+   "lon": 77.076583
+  },
+  {
+   "stretch": "Sarai Rohilla Flyover \u2192 Subhadra Colony",
+   "peak_kmh": 5.6,
+   "night_kmh": 10.0,
+   "obs_peak": 42,
+   "lat": 28.66715486868182,
+   "lon": 77.18202741576047
+  }
+ ],
+ "timetable_gap_routes": [
+  {
+   "route": "D-7703DOWN",
+   "from": "Durga Vihar (Bandh Road)",
+   "to": "Lado Sarai Firni Road (T)",
+   "stops": 18,
+   "timetable_min": 23,
+   "gps_min": 53,
+   "gps_night_min": 36,
+   "ratio": 2.32,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-5402DOWN",
+   "from": "Sai Memorial School / Geeta Colony Pusta",
+   "to": "Mansarovar Park Metro Station / Jain Mandir",
+   "stops": 20,
+   "timetable_min": 22,
+   "gps_min": 49,
+   "gps_night_min": 32,
+   "ratio": 2.21,
+   "gps_coverage_pct": 95
+  },
+  {
+   "route": "D-7703UP",
+   "from": "Lado Sarai Firni Road (T)",
+   "to": "Durga Vihar (Bandh Road)",
+   "stops": 18,
+   "timetable_min": 23,
+   "gps_min": 50,
+   "gps_night_min": 33,
+   "ratio": 2.16,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-5505DOWN",
+   "from": "Lal Bagh Sabzi Mandi",
+   "to": "Ashok Nagar E-Block",
+   "stops": 17,
+   "timetable_min": 21,
+   "gps_min": 45,
+   "gps_night_min": 31,
+   "ratio": 2.12,
+   "gps_coverage_pct": 81
+  },
+  {
+   "route": "309STL-ANDP-RJD-3UP",
+   "from": "Anand Parvat Terminal",
+   "to": "RAJ GHAT DEPOT 3",
+   "stops": 19,
+   "timetable_min": 26,
+   "gps_min": 54,
+   "gps_night_min": 32,
+   "ratio": 2.12,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-6901UP",
+   "from": "G Block Vikas Puri",
+   "to": "Palam Metro Station",
+   "stops": 17,
+   "timetable_min": 27,
+   "gps_min": 54,
+   "gps_night_min": 37,
+   "ratio": 1.99,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-5402UP",
+   "from": "Mansarovar Park Metro Station / Jain Mandir",
+   "to": "Sai Memorial School / Geeta Colony Pusta",
+   "stops": 20,
+   "timetable_min": 22,
+   "gps_min": 43,
+   "gps_night_min": 30,
+   "ratio": 1.96,
+   "gps_coverage_pct": 95
+  },
+  {
+   "route": "274LNIKSTLDOWN",
+   "from": "Shahstri Park DMRC Depot",
+   "to": "BabarPur Extension Terminal",
+   "stops": 13,
+   "timetable_min": 15,
+   "gps_min": 29,
+   "gps_night_min": 17,
+   "ratio": 1.96,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-6901DOWN",
+   "from": "Palam Metro Station",
+   "to": "G Block Vikas Puri",
+   "stops": 18,
+   "timetable_min": 29,
+   "gps_min": 56,
+   "gps_night_min": 36,
+   "ratio": 1.95,
+   "gps_coverage_pct": 88
+  },
+  {
+   "route": "127UP",
+   "from": "Old Delhi Railway Station (T)",
+   "to": "Haider Pur Village",
+   "stops": 27,
+   "timetable_min": 41,
+   "gps_min": 79,
+   "gps_night_min": 51,
+   "ratio": 1.94,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "127DOWN",
+   "from": "Haider Pur Village",
+   "to": "Old Delhi Railway Station (T)",
+   "stops": 32,
+   "timetable_min": 45,
+   "gps_min": 87,
+   "gps_night_min": 54,
+   "ratio": 1.93,
+   "gps_coverage_pct": 97
+  },
+  {
+   "route": "D-5505UP",
+   "from": "Ashok Nagar E-Block",
+   "to": "Lal Bagh Sabzi Mandi",
+   "stops": 17,
+   "timetable_min": 21,
+   "gps_min": 41,
+   "gps_night_min": 29,
+   "ratio": 1.92,
+   "gps_coverage_pct": 88
+  },
+  {
+   "route": "939STL-RITHALAUP",
+   "from": "Q Block Mangolpuri",
+   "to": "Rithala Depot",
+   "stops": 12,
+   "timetable_min": 16,
+   "gps_min": 30,
+   "gps_night_min": 20,
+   "ratio": 1.91,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-072STLDOWN",
+   "from": "Dwarka Metro Station",
+   "to": "Uttam Nagar Terminal (In Gate)",
+   "stops": 14,
+   "timetable_min": 15,
+   "gps_min": 28,
+   "gps_night_min": 17,
+   "ratio": 1.9,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-8803UP",
+   "from": "Tughlaqabad Extn",
+   "to": "Savitri Cinema",
+   "stops": 14,
+   "timetable_min": 13,
+   "gps_min": 25,
+   "gps_night_min": 17,
+   "ratio": 1.9,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-8803DOWN",
+   "from": "Savitri Cinema",
+   "to": "Tughlaqabad Extn",
+   "stops": 14,
+   "timetable_min": 12,
+   "gps_min": 23,
+   "gps_night_min": 14,
+   "ratio": 1.89,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "951UP",
+   "from": "PS Kamla Market",
+   "to": "West Enclave / Sansad Vihar (T)",
+   "stops": 35,
+   "timetable_min": 56,
+   "gps_min": 105,
+   "gps_night_min": 62,
+   "ratio": 1.88,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "181UP",
+   "from": "Nizamuddin Railway Station",
+   "to": "Shakti Nagar Nangia Park",
+   "stops": 50,
+   "timetable_min": 65,
+   "gps_min": 121,
+   "gps_night_min": 70,
+   "ratio": 1.87,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "D-019STL-KNDDOWN",
+   "from": "Kushak Nallah Depot",
+   "to": "Nizamuddin Railway Station",
+   "stops": 13,
+   "timetable_min": 16,
+   "gps_min": 29,
+   "gps_night_min": 15,
+   "ratio": 1.87,
+   "gps_coverage_pct": 100
+  },
+  {
+   "route": "183UP",
+   "from": "Old Delhi Railway Station (T)",
+   "to": "Rohini Sec15 E2",
+   "stops": 30,
+   "timetable_min": 51,
+   "gps_min": 96,
+   "gps_night_min": 63,
+   "ratio": 1.86,
+   "gps_coverage_pct": 97
+  }
+ ]
+}

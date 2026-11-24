@@ -1,0 +1,48 @@
+origin,dest,weekday,time,google_min,ours_min,ours_low,ours_high,timetable_min,ours_routes,transfers,ours_ride_min,actual_ride_min,actual_runs,real_door_to_door_min
+Kashmere Gate ISBT,Nehru Place,tuesday,08:30,66.0,73.1,60,99,78.6,419UP + 425UP,1,,,,
+Kashmere Gate ISBT,Nehru Place,tuesday,18:00,75.0,105.2,82,152,87.7,425UP,0,,,,
+Anand Vihar ISBT,Connaught Place,tuesday,08:30,47.0,59.6,52,78,57.7,73UP,0,41.2,48.2,3.0,64.4
+Anand Vihar ISBT,Connaught Place,tuesday,18:00,47.0,75.5,64,105,58.6,73UP,0,56.2,62.8,3.0,81.8
+Dwarka Sector 21,Connaught Place,tuesday,08:30,91.0,85.2,74,112,98.2,801STL-KAP-DWS-22UP + 729DOWN,1,,,,
+Dwarka Sector 21,Connaught Place,tuesday,18:00,94.0,109.5,87,157,109.8,718UP + 729DOWN,1,,,,
+Rohini Sector 18,Kashmere Gate ISBT,tuesday,08:30,58.0,68.0,57,90,81.6,188DOWN,0,,,,
+Rohini Sector 18,Kashmere Gate ISBT,tuesday,18:00,62.0,92.9,73,133,77.8,140DOWN,0,59.3,55.3,1.0,73.0
+Mayur Vihar Phase 1,AIIMS,tuesday,08:30,75.0,73.1,60,98,82.6,611AUP,0,,,,
+Mayur Vihar Phase 1,AIIMS,tuesday,18:00,78.0,103.0,84,141,97.8,307DOWN + 543AUP,1,,,,
+Badarpur Border,ITO,tuesday,08:30,63.0,73.5,61,100,76.2,405DOWN,0,,,,
+Badarpur Border,ITO,tuesday,18:00,63.0,90.4,74,130,75.3,405DOWN,0,71.2,98.4,1.0,
+Narela,Azadpur,tuesday,08:30,82.0,71.9,63,94,88.7,ML-96DOWN,0,50.5,72.2,1.0,87.1
+Narela,Azadpur,tuesday,18:00,82.0,92.8,81,127,90.2,ML-96DOWN,0,72.3,85.8,1.0,106.1
+Uttam Nagar,Karol Bagh,tuesday,08:30,69.0,95.6,80,129,82.4,817DOWN + 857DOWN,1,,,,
+Uttam Nagar,Karol Bagh,tuesday,18:00,72.0,128.3,103,183,91.4,817DOWN + 966DOWN,1,,,,
+Lajpat Nagar,Connaught Place,tuesday,08:30,47.0,50.8,45,65,53.6,460DOWN,0,30.6,35.2,2.0,62.9
+Saket,Nehru Place,tuesday,08:30,38.0,42.5,35,55,42.8,534DOWN,0,,,,
+Saket,Nehru Place,tuesday,18:00,38.0,58.4,45,81,50.5,534DOWN,0,26.3,31.7,1.0,65.4
+Janakpuri,AIIMS,tuesday,08:30,67.0,67.3,60,88,67.3,711UP,0,52.5,69.1,3.0,79.8
+Janakpuri,AIIMS,tuesday,18:00,63.0,82.4,70,116,69.0,711UP,0,,,,
+Shahdara,ITO,tuesday,08:30,47.0,54.7,47,71,53.6,418AUP,0,34.0,40.8,2.0,
+Shahdara,ITO,tuesday,18:00,47.0,71.3,59,99,61.0,623UP,0,45.7,43.7,3.0,71.8
+Mehrauli,AIIMS,tuesday,08:30,39.0,38.7,33,51,36.9,502DOWN,0,21.3,32.3,6.0,47.7
+Mehrauli,AIIMS,tuesday,18:00,39.0,53.0,43,74,39.3,502ADOWN,0,,,,
+Okhla,Lajpat Nagar,tuesday,08:30,31.0,44.9,39,56,43.9,433DOWN,0,16.2,16.5,5.0,36.9
+Okhla,Lajpat Nagar,tuesday,18:00,31.0,56.6,47,75,46.9,433DOWN,0,25.0,24.9,1.0,52.0
+Punjabi Bagh,Connaught Place,tuesday,08:30,48.0,68.5,59,88,62.9,85DOWN,0,34.9,43.1,6.0,
+Punjabi Bagh,Connaught Place,tuesday,18:00,48.0,82.2,64,118,70.8,910ADOWN,0,,,,
+Najafgarh,Dwarka Sector 21,tuesday,08:30,76.0,73.3,61,96,85.3,D-9916DOWN,0,,,,
+New Delhi Railway Station,Nehru Place,tuesday,08:30,62.0,63.2,58,79,62.0,440AUP,0,,,,
+New Delhi Railway Station,Nehru Place,tuesday,18:00,60.0,103.3,81,147,83.6,445AUP,0,,,,
+Sarai Kale Khan ISBT,Anand Vihar ISBT,tuesday,08:30,43.0,42.1,34,56,52.3,543ADOWN,0,21.6,20.7,1.0,42.0
+Sarai Kale Khan ISBT,Anand Vihar ISBT,tuesday,18:00,43.0,52.4,43,73,51.5,543ADOWN,0,,,,
+Mundka,Punjabi Bagh,tuesday,08:30,92.0,55.2,49,69,57.4,926DOWN,0,31.4,28.6,1.0,53.0
+Mundka,Punjabi Bagh,tuesday,18:00,92.0,78.3,67,106,61.8,926DOWN,0,,,,
+Azadpur,Karol Bagh,tuesday,08:30,42.0,54.1,45,72,51.7,144ADOWN,0,32.0,34.3,1.0,
+Azadpur,Karol Bagh,tuesday,18:00,42.0,69.7,58,98,46.7,181ADOWN,0,,,,
+Nehru Place,Kashmere Gate ISBT,tuesday,08:30,73.0,71.3,60,95,73.8,425DOWN,0,46.1,60.0,1.0,85.8
+Connaught Place,Anand Vihar ISBT,tuesday,08:30,50.0,58.9,50,78,61.5,73DOWN,0,,,,
+Connaught Place,Anand Vihar ISBT,tuesday,18:00,50.0,77.6,60,110,73.3,DS-39UP + 534DOWN,1,,,,
+Karol Bagh,Saket,tuesday,08:30,81.0,100.4,80,137,103.0,966DOWN + 505UP + 546UP,2,,,,
+Karol Bagh,Saket,tuesday,18:00,85.0,141.1,116,200,98.8,966DOWN + 548UP,1,,,,
+ITO,Janakpuri,tuesday,08:30,91.0,98.7,82,133,98.7,720UP,0,,,,
+ITO,Janakpuri,tuesday,18:00,90.0,110.6,92,156,93.0,740UP,0,,,,
+AIIMS,Rohini Sector 18,tuesday,08:30,119.0,119.7,101,161,122.2,502DOWN + 215UP,1,84.0,94.5,4.0,
+AIIMS,Rohini Sector 18,tuesday,18:00,121.0,149.0,120,213,137.6,502DOWN + 188UP,1,,,,

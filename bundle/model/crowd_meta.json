@@ -1,0 +1,71 @@
+{
+ "tickets_total": 2559899,
+ "tickets_used_pax": 2586873,
+ "route_match_pct": {
+  "exact": 98.4,
+  "none": 1.4,
+  "base": 0.2
+ },
+ "stop_match": {
+  "matched_both": 2369678,
+  "no_route": 37104,
+  "reversed": 68267,
+  "stop_unmatched": 48688,
+  "matched_start_only": 36162,
+  "cells_without_scheduled_bus": 725509,
+  "cells_bus_floor": 70610,
+  "cells_capped_at_crush": 19073,
+  "routes_rescaled": 272
+ },
+ "stop_match_pct_of_tickets": {
+  "matched_both": 92.6,
+  "no_route": 1.4,
+  "reversed": 2.7,
+  "stop_unmatched": 1.9,
+  "matched_start_only": 1.4
+ },
+ "days_per_daytype": {
+  "weekday": 20,
+  "saturday": 5,
+  "sunday": 6
+ },
+ "per_day_average_boardings": {
+  "weekday": 102303.0,
+  "saturday": 81251.0,
+  "sunday": 50216.0
+ },
+ "week_to_week_correlation": {
+  "w1_vs_w2": 0.957,
+  "w2_vs_w3": 0.965
+ },
+ "cells": 2476533,
+ "cells_by_level": {
+  "seats": 2211804,
+  "standing": 181638,
+  "crowded": 83091
+ },
+ "ac_share_pct": 80.4,
+ "capacity_rescaling": {
+  "crush_load": 80.5,
+  "routes_rescaled": 272,
+  "routes_total": 1479,
+  "implied_eticket_share_quantiles": {
+   "0.25": 0.035,
+   "0.5": 0.035,
+   "0.75": 0.035,
+   "0.9": 0.044
+  }
+ },
+ "assumptions": {
+  "eticket_share": 0.035,
+  "share_range": [
+   0.03,
+   0.04
+  ],
+  "untracked_uplift": 1.1,
+  "seats": 35,
+  "standing": 35,
+  "levels": "seats < 0.9\u00b7seats; standing < seats + \u00bd\u00b7standing; else crowded"
+ },
+ "build_s": 176.9
+}

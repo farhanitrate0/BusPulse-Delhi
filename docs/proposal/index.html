@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>BusPulse Delhi — Phase 1 proposal</title>
+<style>
+@page{size:A4;margin:14mm 15mm}
+*{box-sizing:border-box}
+body{font-family:"Inter","Segoe UI",system-ui,sans-serif;color:#14212b;font-size:10.4pt;line-height:1.45;margin:0}
+h1{font-size:22pt;margin:0;color:#0b6e4f;letter-spacing:-.01em}
+h1 span{color:#14212b;font-weight:600}
+.sub{color:#4a5b68;font-size:10.5pt;margin:2px 0 10px}
+h2{font-size:12pt;color:#0b6e4f;margin:12px 0 4px;border-bottom:1.5px solid #d8e8e0;padding-bottom:2px}
+p{margin:3px 0 6px}
+ul{margin:3px 0 6px 0;padding-left:16px}
+li{margin:1.5px 0}
+table{border-collapse:collapse;width:100%;margin:4px 0 6px;font-size:9.6pt}
+th,td{border-bottom:1px solid #e2e8ee;padding:3.5px 5px;text-align:left;vertical-align:top}
+th{background:#f1f6f3;font-weight:700}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+b.g{color:#0b6e4f}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0 4px}
+.kpi{background:#f1f6f3;border-radius:8px;padding:7px 8px}
+.kpi b{display:block;font-size:15pt;color:#0b6e4f;line-height:1.1}
+.kpi span{font-size:8.6pt;color:#4a5b68}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.foot{margin-top:8px;font-size:8.6pt;color:#4a5b68}
+.pb{page-break-before:always}
+</style></head><body>
+<h1>BusPulse <span>Delhi</span></h1>
+<div class="sub">Bus times from real buses on the road. Transport Stack Hackathon 2026 · Phase 1 · <b>Problem 1</b>: real-time bus traffic model and journey planner (with Problem 2's crowding as a layer) · Team: Farhan</div>
+
+<h2>The problem</h2>
+<p>Delhi's bus timetable assumes fixed travel times. Real times change with the hour, the day and the road, so a
+rider cannot tell whether a trip will take 30 minutes or 60, how long the wait will be, or whether the bus will be
+full. Thousands of buses already report their position every ~10 seconds. BusPulse uses this GPS stream to
+measure travel times and turns them into journey times a rider can rely on.</p>
+
+<h2>What we built</h2>
+<ul>
+<li><b>A travel-time model from 31 days of bus GPS</b> (913 M position fixes): fixes are cleaned (duplicates, GPS
+jumps, data gaps), snapped to stop clusters, and turned into 48 M stop-to-stop observations. Each stretch then gets a
+running time and a stop dwell time for every hour of weekdays, Saturdays and Sundays. Where data is thin, a 4-level
+fallback steps down to the timetable.</li>
+<li><b>A Google-Maps-like API</b>: <code>GET /journeys?from=…&amp;to=…&amp;depart=…</code> takes stop names, addresses or
+coordinates and returns 2–3 options. Each option has the walk, boarding stop, route, wait, ride, changes,
+alighting stop, total time and arrival, plus an honest range ("on 9 of 10 days you arrive by…"), the same trip at
+a quieter hour, and how full the bus usually is. Also <code>/matrix</code>, <code>/traffic</code>,
+<code>/live/vehicles</code>, <code>/places/search</code> and interactive docs at <code>/docs</code>.</li>
+<li><b>Real waits</b>: measured from real bus arrivals rather than the timetable. On thinly served routes, real waits are about 6× the
+timetable's promise, and the planner steers riders to routes that actually run.</li>
+<li><b>Live data</b>: a GTFS-Realtime connector (built-in decoder) is <b>running on the Transport Stack live feed</b>.
+It tracked 5,424 buses on 24 Nov 2026 and uses the same measurement code as the historical model. The last 15
+minutes of live runs are blended with history and fade out further along the trip.</li>
+<li><b>A simple web app for every rider</b>: big numbers, English/हिंदी, a map with your route, <b>live buses</b> (yours
+near your stop, ride-hailing style), a <b>3D view</b>, city traffic by hour, crowding, an in-app Accuracy page,
+and a phone layout.</li>
+</ul>
+
+<h2>How accurate is it? (tested on 25–31 Oct, a week the model never saw)</h2>
+<div class="kpis">
+<div class="kpi"><b>1.61 min</b><span>average error on real bus trips of 5–30 stops (timetable 2.84)</span></div>
+<div class="kpi"><b>71 % / 75 %</b><span>within ±20 % without / with live data (timetable 38 %)</span></div>
+<div class="kpi"><b>12.4 %</b><span>door-to-door error incl. real waits (timetable 17.0 %)</span></div>
+<div class="kpi"><b>89.9 %</b><span>of real rides arrived inside the "9 of 10 days" promise (90 % claimed)</span></div>
+</div>
+<table>
+<tr><th>Compared with real buses</th><th>average error</th><th>typical error</th><th>within ±20 %</th></tr>
+<tr><td>BusPulse: 42,000 real bus trips of 5–30 stops</td><td class="n"><b class="g">1.61 min</b></td><td class="n"><b class="g">0.79 min</b></td><td class="n"><b class="g">71 %</b></td></tr>
+<tr><td>Official timetable, same trips</td><td class="n">2.84 min</td><td class="n">1.84 min</td><td class="n">38 %</td></tr>
+<tr><td>BusPulse: 378 whole planned bus rides (median 21 min)</td><td class="n"><b class="g">4.49 min</b></td><td class="n"><b class="g">2.14 min</b></td><td class="n"><b class="g">70 %</b></td></tr>
+<tr><td>BusPulse: 96 door-to-door trips, walk + real wait + real ride (median 72 min)</td><td class="n"><b class="g">8.7 min</b></td><td class="n">—</td><td class="n"><b class="g">80 %</b></td></tr>
+</table>
+<p><b>Versus Google Maps</b> (47 bus-only trips at 08:30 and 18:00): in the morning we agree with Google (median difference 12 %).
+At 6 pm Google's times barely change while real buses crawl. On the 15 trips we could follow on real buses,
+BusPulse was 8.7 min from reality and Google 17.4 min, and BusPulse was closer on 10 of 15. Example: bus 463 at 6 pm, Google ~20 min,
+BusPulse 36, real buses 45. Settings were chosen on a separate split (train 1–17, test 18–24 Oct). Corrections that
+did not help were tested and documented, not used.</p>
+
+<div class="pb"></div>
+<h2>Design choices that matter</h2>
+<div class="two"><div>
+<ul>
+<li><b>Waiting is part of travel time, modelled separately.</b> Stop dwell is kept apart from running time; signal
+delay stays inside running time; the rider's wait comes from real arrivals. The app shows
+"1 h 9 min on the bus · 30 min waiting".</li>
+<li><b>Honest ranges, checked</b>: the "9 of 10 days" promise holds 89.9 % of the time.</li>
+<li><b>Little or no live data</b>: pure history, then fallbacks; the app shows the share of each trip measured from real buses.</li>
+</ul></div><div>
+<ul>
+<li><b>Noisy GPS</b>: 38.5 % duplicates removed, GPS jumps dropped, gaps over 3 min never produce a run.</li>
+<li><b>Same code for live and history</b>: the live connector reuses the pipeline's stop-visit logic. On a replayed
+feed it matches the offline numbers within 1 %.</li>
+<li><b>Built to run cheaply</b>: about 0.5 s per full answer, under 400 MB RAM, a 50 MB model bundle, one command to start.</li>
+</ul></div></div>
+
+<h2>Who it is for</h2>
+<p>Delhi's buses carry about 41 lakh trips a day (Economic Survey of Delhi 2023-24), with buses running about 81 % full
+on average. In a 2024 Greenpeace survey, 87 % of women bus riders said they wait more than 10 minutes and only 21 % said buses come on
+time (more in docs/USER_RESEARCH.md). Our users are daily bus riders who need to know when to leave and whether
+they will get a seat, in Hindi or English, on a basic phone. Also planners and operators: city traffic by hour, the slowest stretches, and travel-time matrices.</p>
+
+<h2>Phase 2 plan</h2>
+<ul>
+<li>Validate the live blend over a full week of live data, and add bus-specific arrival predictions at stops (the next bus, not the average one).</li>
+<li><b>Problem 4</b>: stretch speeds by hour as the traffic input for EV feeder routes. <b>Problem 3</b>: <code>/matrix</code> for OD work.
+<b>Problem 5</b>: extend the ticket → stretch load model to metro + bus.</li>
+<li>Metro legs in the planner, stop departure boards, and fares.</li>
+</ul>
+
+<h2>Links</h2>
+<p>Code and docs: <b>github.com/farhanitrate0/BusPulse-Delhi</b> (README, technical note, validation report, live connector check, experiments).
+Live demo: see the README. Data: Transport Stack (bus GPS Oct 2026, GTFS, e-tickets) and the Transport Stack GTFS-RT live feed.</p>
+<div class="foot">All numbers are from docs/VALIDATION.md, docs/RIDE_VALIDATION.md and docs/google_comparison.md in the repository.</div>
+</body></html>

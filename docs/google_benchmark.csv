@@ -1,0 +1,48 @@
+origin_name,origin_lat,origin_lon,dest_name,dest_lat,dest_lon,weekday,depart_time,google_minutes,google_routes
+Kashmere Gate ISBT,28.6675,77.2282,Nehru Place,28.5494,77.2519,tuesday,08:30,66.0,425
+Kashmere Gate ISBT,28.6675,77.2282,Nehru Place,28.5494,77.2519,tuesday,18:00,75.0,502 + 440
+Anand Vihar ISBT,28.6469,77.3159,Connaught Place,28.6315,77.2167,tuesday,08:30,47.0,943
+Anand Vihar ISBT,28.6469,77.3159,Connaught Place,28.6315,77.2167,tuesday,18:00,47.0,943
+Dwarka Sector 21,28.5523,77.0583,Connaught Place,28.6315,77.2167,tuesday,08:30,91.0,717 + 858
+Dwarka Sector 21,28.5523,77.0583,Connaught Place,28.6315,77.2167,tuesday,18:00,94.0,801 + 729
+Rohini Sector 18,28.738,77.139,Kashmere Gate ISBT,28.6675,77.2282,tuesday,08:30,58.0,140
+Rohini Sector 18,28.738,77.139,Kashmere Gate ISBT,28.6675,77.2282,tuesday,18:00,62.0,116
+Mayur Vihar Phase 1,28.6044,77.2944,AIIMS,28.5672,77.21,tuesday,08:30,75.0,D-4402 + 611 + 507
+Mayur Vihar Phase 1,28.6044,77.2944,AIIMS,28.5672,77.21,tuesday,18:00,78.0,D-4402 + 611 + 507E
+Badarpur Border,28.4934,77.303,ITO,28.6287,77.241,tuesday,08:30,63.0,405
+Badarpur Border,28.4934,77.303,ITO,28.6287,77.241,tuesday,18:00,63.0,405
+Narela,28.8526,77.0929,Azadpur,28.7075,77.1767,tuesday,08:30,82.0,ML96
+Narela,28.8526,77.0929,Azadpur,28.7075,77.1767,tuesday,18:00,82.0,ML96
+Uttam Nagar,28.6219,77.059,Karol Bagh,28.6519,77.1909,tuesday,08:30,69.0,817N + 966
+Uttam Nagar,28.6219,77.059,Karol Bagh,28.6519,77.1909,tuesday,18:00,72.0,824 + 966
+Lajpat Nagar,28.5677,77.2433,Connaught Place,28.6315,77.2167,tuesday,08:30,47.0,433
+Saket,28.5244,77.2066,Nehru Place,28.5494,77.2519,tuesday,08:30,38.0,534
+Saket,28.5244,77.2066,Nehru Place,28.5494,77.2519,tuesday,18:00,38.0,428
+Janakpuri,28.6219,77.0878,AIIMS,28.5672,77.21,tuesday,08:30,67.0,711 + D-028
+Janakpuri,28.6219,77.0878,AIIMS,28.5672,77.21,tuesday,18:00,63.0,711 + D-028
+Shahdara,28.6735,77.2894,ITO,28.6287,77.241,tuesday,08:30,47.0,720
+Shahdara,28.6735,77.2894,ITO,28.6287,77.241,tuesday,18:00,47.0,623
+Mehrauli,28.5196,77.1849,AIIMS,28.5672,77.21,tuesday,08:30,39.0,519
+Mehrauli,28.5196,77.1849,AIIMS,28.5672,77.21,tuesday,18:00,39.0,519
+Okhla,28.5355,77.2732,Lajpat Nagar,28.5677,77.2433,tuesday,08:30,31.0,433A
+Okhla,28.5355,77.2732,Lajpat Nagar,28.5677,77.2433,tuesday,18:00,31.0,433A
+Punjabi Bagh,28.6683,77.1325,Connaught Place,28.6315,77.2167,tuesday,08:30,48.0,910
+Punjabi Bagh,28.6683,77.1325,Connaught Place,28.6315,77.2167,tuesday,18:00,48.0,910
+Najafgarh,28.6092,76.9798,Dwarka Sector 21,28.5523,77.0583,tuesday,08:30,76.0,764 + D-068
+New Delhi Railway Station,28.643,77.2195,Nehru Place,28.5494,77.2519,tuesday,08:30,62.0,440
+New Delhi Railway Station,28.643,77.2195,Nehru Place,28.5494,77.2519,tuesday,18:00,60.0,440A
+Sarai Kale Khan ISBT,28.5889,77.258,Anand Vihar ISBT,28.6469,77.3159,tuesday,08:30,43.0,543B
+Sarai Kale Khan ISBT,28.5889,77.258,Anand Vihar ISBT,28.6469,77.3159,tuesday,18:00,43.0,543A
+Mundka,28.6823,77.0306,Punjabi Bagh,28.6683,77.1325,tuesday,08:30,92.0,941
+Mundka,28.6823,77.0306,Punjabi Bagh,28.6683,77.1325,tuesday,18:00,92.0,991
+Azadpur,28.7075,77.1767,Karol Bagh,28.6519,77.1909,tuesday,08:30,42.0,114B + 166
+Azadpur,28.7075,77.1767,Karol Bagh,28.6519,77.1909,tuesday,18:00,42.0,78 + 166
+Nehru Place,28.5494,77.2519,Kashmere Gate ISBT,28.6675,77.2282,tuesday,08:30,73.0,930 + 402
+Connaught Place,28.6315,77.2167,Anand Vihar ISBT,28.6469,77.3159,tuesday,08:30,50.0,73
+Connaught Place,28.6315,77.2167,Anand Vihar ISBT,28.6469,77.3159,tuesday,18:00,50.0,73
+Karol Bagh,28.6519,77.1909,Saket,28.5244,77.2066,tuesday,08:30,81.0,966 Ext. + 522A
+Karol Bagh,28.6519,77.1909,Saket,28.5244,77.2066,tuesday,18:00,85.0,966 Ext. + 456A
+ITO,28.6287,77.241,Janakpuri,28.6219,77.0878,tuesday,08:30,91.0,740 Ext. + 711
+ITO,28.6287,77.241,Janakpuri,28.6219,77.0878,tuesday,18:00,90.0,740
+AIIMS,28.5672,77.21,Rohini Sector 18,28.738,77.139,tuesday,08:30,119.0,502 Ladies Spl. + 107
+AIIMS,28.5672,77.21,Rohini Sector 18,28.738,77.139,tuesday,18:00,121.0,502 + 107

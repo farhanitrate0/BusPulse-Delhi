@@ -1,0 +1,13 @@
+data/
+data_synth/
+__pycache__/
+*.pyc
+.venv/
+*.db
+*.7z
+*.zip
+*.mp4
+.env
+
+# hackathon problem statements (organisers' documents, not ours to publish)
+ps/

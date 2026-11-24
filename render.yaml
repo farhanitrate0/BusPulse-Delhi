@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: buspulse-delhi
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run.py --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: BUSPULSE_DATA
+        value: bundle
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      # fewer glibc malloc arenas: keeps the threaded server well inside the 512 MB instance
+      - key: MALLOC_ARENA_MAX
+        value: "2"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # live GTFS-RT feed (Transport Stack). The key is a secret: Render asks for it when the Blueprint is
+      # created. Format: "x-api-key: <your key>". Leave it empty to run on the replayed day instead.
+      - key: BUSPULSE_GTFSRT_URL
+        value: https://dts-backend.transportstack.in/api/dataset/otd/get-file?agency=delhi-buses&category=realtime_gtfs&filename=VehiclePositions.pb
+      - key: BUSPULSE_GTFSRT_HEADERS
+        sync: false
+      - key: BUSPULSE_GTFSRT_POLL_S
+        value: "30"
