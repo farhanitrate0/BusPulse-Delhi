@@ -1,16 +1,7 @@
-<p align="center">
-  <img src="docs/img/hero.png" alt="BusPulse Delhi: bus times from real buses on the road. The journey planner on desktop and on a phone." width="100%">
-</p>
+# BusPulse Delhi: bus times from real buses on the road
 
-<p align="center">
-  <img src="docs/img/demo.gif" alt="30-second walkthrough: typing Kashmere Gate, planning to Nehru Place, the journey card and its steps, the same trip in Hindi, City traffic at 6 pm, the Accuracy tab, the 3D view and live buses on the map" width="100%">
-  <br><sub><b>30 s walkthrough</b> · search → plan → journey steps → हिंदी → City traffic → Accuracy → 3D → live buses (the real app, recorded screen by screen)</sub>
-</p>
-
-# BusPulse Delhi — bus times from real buses on the road
-
-**Transport Stack Hackathon 2026 · Problem 1: Real-time bus traffic model and journey planner**
-(+ Problem 2's crowding as a layer)
+**Built for the [Transport Stack Hackathon 2026, Delhi](https://delhi.transportstack.in/hackathon)** (Delhi Transport Stack, Phase 1)<br>
+**Problem 1: Real-time bus traffic model and journey planner** (+ Problem 2's crowding as a layer)
 <!-- LIVE DEMO: after the Render deploy, add a line here:  **Live demo:** https://<name>.onrender.com -->
 
 <p>
@@ -20,19 +11,28 @@
   <a href="tests/"><img alt="Tests: 13 passing" src="https://img.shields.io/badge/tests-13%20passing-0b6e4f?style=for-the-badge"></a>
 </p>
 
+<p align="center">
+  <img src="docs/img/hero.png" alt="BusPulse Delhi: bus times from real buses on the road. The journey planner on desktop and on a phone." width="100%">
+</p>
+
 > **6 pm, bus 507, Okhla Extension → Lajpat Nagar.** The timetable says **23 min**, Google Maps **28**.
 > BusPulse says **52**. The real buses that week took **53**.
 
-> **What it is:** a bus journey planner for Delhi whose travel times come from real bus GPS, not the timetable —
-> with a time range you can plan around, realistic waits, how full the bus usually is, and a Hindi toggle.
+> **What it is:** a bus journey planner for Delhi whose travel times come from real bus GPS, not the timetable.
+> It gives a time range you can plan around, realistic waits, how full the bus usually is, and a Hindi toggle.
 
 **[Screenshots](#screenshots) · [Validation](docs/VALIDATION.md) · [How it works](#how-it-works) · [API](#api) · [Tech note](docs/TECH_NOTE.md) · [Proposal (PDF)](docs/BusPulse_Proposal.pdf) · [Demo video (MP4)](docs/BusPulse_demo.mp4) · [Who rides Delhi's buses](docs/USER_RESEARCH.md) · [Limits](#limits-honestly)**
+
+<p align="center">
+  <img src="docs/img/demo.gif" alt="30-second walkthrough: typing Kashmere Gate, planning to Nehru Place, the journey card and its steps, the same trip in Hindi, City traffic at 6 pm, the Accuracy tab, the 3D view and live buses on the map" width="100%">
+  <br><sub><b>30 s walkthrough</b> · search → plan → journey steps → हिंदी → City traffic → Accuracy → 3D → live buses (the real app, recorded screen by screen)</sub>
+</p>
 
 Local: `pip install -r requirements.txt && python run.py` → http://localhost:8000
 
 Delhi's buses are moving traffic sensors. BusPulse turns **31 days of bus GPS (124 GB, 913 M position fixes)**
 into a model of how long a bus really takes on every stretch between two stops, at every hour of a weekday,
-Saturday and Sunday — then plans bus journeys on it: walk, board, ride, change, walk, with a **reliability range
+Saturday and Sunday. Then it plans bus journeys on that model: walk, board, ride, change, walk, with a **reliability range
 that holds on real trips**, **realistic waits**, the **same trip at a quieter hour**, and **how full the bus
 usually is**.
 
@@ -63,14 +63,14 @@ random wait for the bus:
 |---|---|---|
 | **Door to door** (walk + real wait + real ride, 96 trips, median 72 min): average error · within ±20 % | 12.1 min · 66 % | **8.7 min · 80 %** |
 | … MAPE | 17.0 % | **12.4 %** |
-| "On 9 of 10 days you arrive by …": real rides that made it | — | **89.9 %** (claimed 90 %) |
+| "On 9 of 10 days you arrive by …": real rides that made it | n/a | **89.9 %** (claimed 90 %) |
 | Wait at the stop: average error vs real departures | −7.1 min | **−2.8 min** |
 | **vs Google Maps**: trips checkable against real buses (15 of 47), average difference from the real trip | Google 17.4 min | **8.7 min**, closer on 10 of 15 |
-| Answer time for a full journey plan (one user) | — | **≈ 0.5 s** |
+| Answer time for a full journey plan (one user) | n/a | **≈ 0.5 s** |
 
 What the GPS revealed: buses run **22 % slower than the timetable** at the evening peak (median route), **23 km/h
 at 6 pm vs 35 km/h at 11 pm**, and real waits are about **twice** what the timetable implies. On routes the GPS
-barely sees, real waits are **~6×** the timetable's promise — the planner steers riders towards routes that run.
+barely sees, real waits are **~6×** the timetable's promise, so the planner steers riders towards routes that run.
 **Versus Google Maps** (47 bus-only trips at 08:30 and 18:00): in the morning we agree (median difference 12 %).
 At 6 pm Google's times barely change (65 min average vs 64 in the morning) while BusPulse expects 90, because
 the real buses crawl. On the trips we could check against real buses, BusPulse was off by 8.7 min and Google
@@ -97,9 +97,9 @@ buses 53 (median of 7). Details and where we lose: [docs/VALIDATION.md §3](docs
 * **Origin → destination** (stop name with typos, Delhi nicknames like "cp" or "ndls", an address or landmark via
   OpenStreetMap, `lat,lon`, or a tap on the map) + departure time → 2–3 options, each with walk to stop, boarding stop, route, wait, ride, alighting stop,
   changes, walk, total and arrival.
-* **Times change with the hour and day** — 08:30 on a Tuesday is not 23:00 or a Sunday; night queries roll to the
+* **Times change with the hour and day.** 08:30 on a Tuesday is not 23:00 or a Sunday; night queries roll to the
   first useful bus.
-* **"Usually 37–41 min · on 9 of 10 days you arrive by 09:13"** — a range calibrated on real rides of training days
+* **"Usually 37–41 min · on 9 of 10 days you arrive by 09:13"**: a range calibrated on real rides of training days
   and checked on the held-out week.
 * **Waits from real bus departures**, including bunching (two buses together, then a long gap).
 * **Live + historical blend.** A **GTFS-RT connector** (`app/gtfsrt.py`) reads a VehiclePositions feed:
@@ -258,7 +258,7 @@ has too little data, `run` steps down the fallback chain (city hourly factor →
 the hour moves along the trip as the bus advances.
 
 1. **GPS → stop visits → stop-to-stop stretches.** Clean (38.5 % duplicates, jumps, gaps), snap to 50 m stop
-   clusters, detect stop visits, keep the time between consecutive stops on the same GTFS route — running time and
+   clusters, detect stop visits, keep the time between consecutive stops on the same GTFS route, with running time and
    time at the stop separately ([DATA_QUALITY.md](docs/DATA_QUALITY.md)).
 2. **Model.** Per stretch × day type × hour (winsorised mean), with a fallback chain for sparse roads and hours
    (stretch-hour → stretch × city hourly factor → city speed at that hour → timetable).
